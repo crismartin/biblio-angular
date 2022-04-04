@@ -17,8 +17,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: npm ci --ignore-scripts
-      - run: npm run-script build-prod  # package.json -> "scripts"
+      - run: npm ci
+      - run: npm run build  # package.json -> "scripts"
       # - run: npm run-script test  # "ng test --no-watch --no-progress --browsers=ChromeHeadlessCI"
       - name: SonarCloud Scan
         if: success()
