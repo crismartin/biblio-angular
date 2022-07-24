@@ -30,4 +30,8 @@ export class IntranetComponent {
   isAuthenticated(): boolean {
     return this.tokensService.isAuthenticated();
   }
+
+  createLoan(): void {
+    this.router.navigate(['intranet', 'loan']);
+  }
 }

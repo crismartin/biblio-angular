@@ -36,7 +36,7 @@ export class HomeComponent {
   search(value): void {
   }
 
-  redirect(): void {
-    this.router.navigate(['/intranet']);
+  intranet(): void {
+    this.router.navigate(['intranet']);
   }
 }
