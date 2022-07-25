@@ -4,6 +4,7 @@
          [matAutocomplete]="auto"
          [ngModel]="key"
          [required]="obligatory"
+         (keyup.enter)="onRenew()"
          matInput
          type="text"
   >
@@ -14,7 +15,8 @@
     <mat-icon>close</mat-icon>
   </button>
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option (click)="onClick(option)" *ngFor="let option of (keys | async)" [value]="option">
+    <mat-option (click)="onClick(option)"
+                *ngFor="let option of (keys | async)" [value]="option">
       {{option}}
     </mat-option>
   </mat-autocomplete>

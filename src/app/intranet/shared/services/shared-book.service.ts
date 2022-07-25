@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs';
+import {EndPoints} from '@shared/end-points';
+import {map} from 'rxjs/operators';
+import {HttpService} from '@core/http.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SharedBookService {
+
+  constructor(private httpService: HttpService) { }
+
+  searchBookByIsbn(bookIsbn: string): Observable<string[]>  {
+    const url = EndPoints.BOOKS + '/' + bookIsbn;
+    return this.httpService
+      .get(url)
+      .pipe(
+        map(response =>
+          {
+            return response == null ? ['No se ha encontrado resultados'] : response;
+          }
+        )
+      );
+  }
+}
