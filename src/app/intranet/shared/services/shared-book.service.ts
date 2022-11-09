@@ -12,13 +12,16 @@ export class SharedBookService {
   constructor(private httpService: HttpService) { }
 
   searchBookByIsbn(bookIsbn: string): Observable<string[]>  {
-    const url = EndPoints.BOOKS + '/' + bookIsbn;
+    const url = EndPoints.COPY_BOOKS + EndPoints.RESOURCE_BOOK + '/' + bookIsbn;
     return this.httpService
       .get(url)
       .pipe(
         map(response =>
           {
-            return response == null ? ['No se ha encontrado resultados'] : response;
+            const bookResult = response.element;
+            return bookResult == null
+              ? ['No se ha encontrado resultados']
+              : [bookResult.title + ' / ' + bookResult.reference];
           }
         )
       );

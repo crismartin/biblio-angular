@@ -8,17 +8,17 @@
     <!-- ['isbn', 'title', 'author', 'actions] -->
     <ng-container matColumnDef="isbn">
       <th mat-header-cell *matHeaderCellDef> ISBN </th>
-      <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.book.isbn}} </td>
     </ng-container>
 
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Título </th>
-      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.book.title}} </td>
     </ng-container>
 
     <ng-container matColumnDef="author">
       <th mat-header-cell *matHeaderCellDef> Autor </th>
-      <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.book.author}} </td>
     </ng-container>
 
     <ng-container matColumnDef="actions">

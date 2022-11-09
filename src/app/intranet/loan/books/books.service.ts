@@ -1,35 +1,43 @@
 import {Injectable} from '@angular/core';
-import {Book} from '../../shared/models/book';
+import {CopyBook} from 'app/intranet/shared/models/copybook';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
-  booksSelected: Book[];
+  booksSelected: CopyBook[];
 
   constructor() {
     this.booksSelected = [];
   }
 
-  getDataFromTable(): Book[] {
+  getDataFromTable(): CopyBook[] {
     return this.booksSelected;
   }
 
-  addDataInTable(book: Book): void {
-    this.booksSelected.push(book);
-    console.log(this.booksSelected);
+  addDataInTable(book: CopyBook): void {
+    if (!this.alreadyExistInTable(book)){
+      this.booksSelected.push(book);
+      console.log(this.booksSelected);
+    }
   }
 
-  updateDataFromTable(booksSelected: Book[]): void {
+  updateDataFromTable(booksSelected: CopyBook[]): void {
     this.booksSelected = booksSelected;
   }
 
-  deleteDataFromTable(bookSelected: Book): void {
+  deleteDataFromTable(copybookSelected: CopyBook): void {
     this.booksSelected = this.booksSelected
-      .filter(book => book.isbn !== bookSelected.isbn);
+      .filter(copyBook => copyBook.book.isbn !== copybookSelected.book.isbn);
   }
 
   deleteAllData(): void {
     this.booksSelected = [];
+  }
+
+  private alreadyExistInTable(copyBookAdded: CopyBook): boolean {
+    return this.booksSelected
+      .filter(copyBook => copyBook.book.isbn === copyBookAdded.book.isbn)
+      .length === 1;
   }
 }

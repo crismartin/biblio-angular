@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from '@core/core.module';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {NgxBarcodeModule} from 'ngx-barcode';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import {AppComponent} from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
+    NgxBarcodeModule
     // HomeModule // eager load
     // IntranetModule // eager load
   ],

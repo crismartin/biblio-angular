@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {of} from 'rxjs';
 import {BooksService} from './books/books.service';
 import {LoanService} from './loan.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-loan',
@@ -14,8 +15,10 @@ export class LoanComponent implements OnInit {
   customer: string;
   showBooksSelectionDiv: boolean;
   readyToCreate: boolean;
+  barcodeValue: string;
 
-  constructor(private loanService: LoanService, private bookService: BooksService) {
+  constructor(private router: Router, private loanService: LoanService,
+              private bookService: BooksService) {
     this.disableBtnCancelar = false;
     this.customer = null;
     this.showBooksSelectionDiv = false;
@@ -36,19 +39,17 @@ export class LoanComponent implements OnInit {
   }
 
   create(): void {
-    // crear nuevo LoanNewDto
-    const isbns: string[] = this.bookService.getDataFromTable()
-      .map(book => book.isbn);
+    const copyBooksReferences: string[] = this.bookService.getDataFromTable()
+      .map(copyBook => copyBook.reference);
 
     const loan = {
       numberMembership: this.customer,
-      books: isbns
+      books: copyBooksReferences
     };
-    // enviarlo al back con llamada al servicio
+
     this.loanService.create(loan)
-      .subscribe(() => {
-        console.log('Ha ido correctamente el prestamo');
-        // hacer un route a la pantalla de success si ha ido bien
+      .subscribe(loanInfo => {
+        this.router.navigate(['intranet', 'loan', loanInfo.reference, 'success']).then();
       });
   }
 

@@ -9,6 +9,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { SearchByCustomerReferenceComponent } from './searchers/search-by-customer-reference/search-by-customer-reference.component';
 import { SearchByBookIsbnComponent } from './searchers/search-by-book-isbn/search-by-book-isbn.component';
 import { BooksComponent } from './loan/books/books.component';
+import { SuccessComponent } from './loan/success/success.component';
+import {NgxBarcodeModule} from 'ngx-barcode';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { BooksComponent } from './loan/books/books.component';
     LoanComponent,
     SearchByCustomerReferenceComponent,
     SearchByBookIsbnComponent,
-    BooksComponent
+    BooksComponent,
+    SuccessComponent
   ],
   entryComponents: [
   ],
@@ -24,6 +27,7 @@ import { BooksComponent } from './loan/books/books.component';
     SharedModule,
     IntranetRoutingModule,
     ReactiveFormsModule,
+    NgxBarcodeModule,
   ],
   providers: [
   ],

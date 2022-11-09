@@ -3,13 +3,19 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {IntranetComponent} from './intranet.component';
 import {LoanComponent} from './loan/loan.component';
+import {SuccessComponent} from './loan/success/success.component';
 
 const routes: Routes = [
   {
     path: '', // 'intranet' to forRoot
     children: [ // or path: 'intranet/articles'
       {path: '', component: IntranetComponent},
-      {path: 'loan', component: LoanComponent},
+      {path: 'loan',
+        children : [
+          {path: '', component: LoanComponent},
+          {path: ':id/success', component: SuccessComponent},
+        ]
+      },
     ]
   }
 ];
