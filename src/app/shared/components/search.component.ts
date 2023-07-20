@@ -23,6 +23,7 @@ export class SearchComponent {
   resetKey(): void {
     this.key = '';
     this.keyChange.emit(this.key);
+    this.selected.emit('');
   }
 
   onClick(value): void {

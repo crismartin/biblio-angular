@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <span>Intranet</span>
+</mat-toolbar>
+
+<div>
+  <mat-card>
+    <mat-card-title>Préstamo de libros</mat-card-title>
+    <br/>
+    <mat-card-content>
+      <div>
+        <h2>¡Préstamo realizado con éxito!</h2>
+        <p>
+          Recuerde a
+          <b>{{customerName}}</b> que el plazo para
+          devolver el/los libro/s es hasta el día
+          <b>{{endDate |  date: 'dd/MM/yyyy'}}</b>
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>

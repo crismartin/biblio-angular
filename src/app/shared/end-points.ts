@@ -1,10 +1,11 @@
 import {environment} from '@env';
 
 export class EndPoints {
-  static PROVIDERS = environment.REST_CORE + '/providers';
-  static ARTICLES = environment.REST_CORE + '/articles';
-  static CASHIERS = environment.REST_CORE + '/cashiers';
-  static CASHIERS_LAST = EndPoints.CASHIERS + '/last';
-  static TICKETS = environment.REST_CORE + '/tickets';
-  static COMPLAINTS = environment.REST_CUSTOMER_SUPPORT + '/complaints';
+  static LIBRARY = environment.REST_CORE + '/library';
+  static CUSTOMERS = EndPoints.LIBRARY + '/customers';
+  static BOOKS = EndPoints.LIBRARY + '/books';
+  static COPY_BOOKS = EndPoints.LIBRARY + '/copyBooks';
+  static LOANS = EndPoints.LIBRARY + '/loans';
+
+  static RESOURCE_BOOK = '/book';
 }

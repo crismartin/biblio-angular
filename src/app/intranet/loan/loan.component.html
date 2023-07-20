@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <span>Intranet</span>
+</mat-toolbar>
+
+<div>
+  <mat-card>
+    <mat-card-title>Nuevo Préstamo</mat-card-title>
+    <br/>
+    <mat-card-content>
+        <div>
+          <mat-label>Identificación del Usuario</mat-label>
+          <app-search-by-customer-reference (add)="addCustomer($event)"></app-search-by-customer-reference>
+        </div>
+        <br/>
+        <div *ngIf="showBooksSelectionDiv">
+          <h2>Selección de libros</h2>
+          <div>
+            <app-books (hasBooks)="checkHasBooks($event)"></app-books>
+          </div>
+          <div>
+            <mat-dialog-actions align="end">
+              <button (click)="cancel()" mat-raised-button>
+                Cancelar
+              </button>
+              <button (click)="create()" [disabled]="!readyToCreate" mat-raised-button color="primary">
+                <mat-icon>save</mat-icon>
+                Guardar
+              </button>
+            </mat-dialog-actions>
+          </div>
+        </div>
+      <br/>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
