@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {map} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
 
 import {HttpService} from '@core/http.service';

@@ -19,7 +19,7 @@ export class FinderBooksComponent {
     this.resetSearch();
   }
 
-  search() {
+  search(): void {
     this.showBooksFound = true;
 
     this.bookSearchFilter.keyword = normalizeString(this.bookSearchFilter.keyword);
@@ -28,12 +28,12 @@ export class FinderBooksComponent {
     this.books = this.finderBookService.search(this.bookSearchFilter);
   }
 
-  resetSearch() {
+  resetSearch(): void {
     this.showBooksFound = false;
     this.bookSearchFilter = {};
   }
 
-  bookDetail(book: SearchBook) {
+  bookDetail(book: SearchBook): void {
 
   }
 }
