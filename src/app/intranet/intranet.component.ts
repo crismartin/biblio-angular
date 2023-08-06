@@ -34,4 +34,8 @@ export class IntranetComponent {
   createLoan(): void {
     this.router.navigate(['intranet', 'loan']);
   }
+
+  booksSearch(): void {
+    this.router.navigate(['intranet', 'finder-books']);
+  }
 }

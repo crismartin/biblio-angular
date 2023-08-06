@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {IntranetComponent} from './intranet.component';
 import {LoanComponent} from './loan/loan.component';
 import {SuccessComponent} from './loan/success/success.component';
+import {FinderBooksComponent} from './finder-books/finder-books.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
           {path: ':id/success', component: SuccessComponent},
         ]
       },
+      {
+        path: 'finder-books', component: FinderBooksComponent
+      }
     ]
   }
 ];

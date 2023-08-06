@@ -1,12 +1,13 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, AfterViewInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-crud',
-  templateUrl: 'crud.component.html'
+  templateUrl: 'crud.component.html',
 })
-export class CrudComponent {
+export class CrudComponent implements AfterViewInit {
 
   @Input() title = 'Management';
   @Input() createAction = true;
@@ -21,11 +22,17 @@ export class CrudComponent {
   columns: Array<string>;
   columnsHeader: Array<string>;
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngAfterViewInit() {
+  }
+
   @Input()
   set data(data: Observable<any[]>) {
     data.subscribe(dataValue => {
       const columnsSet: Set<string> = new Set();
       this.dataSource = new MatTableDataSource<any>(dataValue);
+      this.dataSource.paginator = this.paginator;
       if (dataValue) {
         dataValue.forEach(obj => Object.getOwnPropertyNames(obj)
           .forEach(column => columnsSet.add(column))

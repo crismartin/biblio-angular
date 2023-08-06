@@ -16,8 +16,8 @@
 
 <div>
   <mat-grid-list [cols]="4" rowHeight="1:1">
-    <mat-grid-tile [colspan]="2" [rowspan]="1" (click)="createLoan()">
-      <mat-card class="dashboard-card card-finder-customers">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-card class="dashboard-card card-finder-customers" (click)="createLoan()">
         <mat-card-content class="dashboard-card-content">
           <div>
             <mat-icon>add_circle</mat-icon>
@@ -28,12 +28,12 @@
     </mat-grid-tile>
 
     <mat-grid-tile [colspan]="2" [rowspan]="1">
-      <mat-card class="dashboard-card card-finder-customers">
+      <mat-card class="dashboard-card card-finder-customers" (click)="booksSearch()">
         <mat-card-content class="dashboard-card-content">
           <div>
-            <mat-icon>collections_bookmark</mat-icon>
+            <mat-icon>search</mat-icon>
           </div>
-          <div>Nuevo Libro</div>
+          <div>Búsqueda Libros</div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

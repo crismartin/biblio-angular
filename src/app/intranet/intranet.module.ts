@@ -11,6 +11,7 @@ import { SearchByBookIsbnComponent } from './searchers/search-by-book-isbn/searc
 import { BooksComponent } from './loan/books/books.component';
 import { SuccessComponent } from './loan/success/success.component';
 import {NgxBarcodeModule} from 'ngx-barcode';
+import { FinderBooksComponent } from './finder-books/finder-books.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {NgxBarcodeModule} from 'ngx-barcode';
     SearchByCustomerReferenceComponent,
     SearchByBookIsbnComponent,
     BooksComponent,
-    SuccessComponent
+    SuccessComponent,
+    FinderBooksComponent
   ],
   entryComponents: [
   ],
