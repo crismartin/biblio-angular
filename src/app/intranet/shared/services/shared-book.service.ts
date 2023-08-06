@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {EndPoints} from '@shared/end-points';
 import {map} from 'rxjs/operators';
 import {HttpService} from '@core/http.service';
+import {UtilsConstants} from "@shared/utils-constants";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class SharedBookService {
           {
             const bookResult = response.element;
             return bookResult == null
-              ? ['No se ha encontrado resultados']
+              ? [UtilsConstants.NO_RESULTS]
               : [bookResult.title + ' / ' + bookResult.reference];
           }
         )

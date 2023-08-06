@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpService} from '@core/http.service';
 import {Observable} from 'rxjs';
-import {SearchBook} from '../shared/models/search-book';
+import {BookItem} from '../shared/models/book-item';
 import {EndPoints} from '@shared/end-points';
 import {BookSearchFilter} from './book-search-filter';
 
@@ -13,7 +13,7 @@ export class FinderBooksService {
 
   constructor(private httpService: HttpService) { }
 
-  search(bookSearchFilter: BookSearchFilter): Observable<SearchBook[]> {
+  search(bookSearchFilter: BookSearchFilter): Observable<BookItem[]> {
     console.log(bookSearchFilter);
     return this.httpService
       .paramsFrom(bookSearchFilter)

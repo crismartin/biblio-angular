@@ -24,7 +24,7 @@ export class CrudComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
   }
 
   @Input()

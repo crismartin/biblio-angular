@@ -6,6 +6,7 @@ export class EndPoints {
   static BOOKS = EndPoints.LIBRARY + '/books';
   static COPY_BOOKS = EndPoints.LIBRARY + '/copyBooks';
   static LOANS = EndPoints.LIBRARY + '/loans';
+  static AUTHORS = EndPoints.LIBRARY + '/authors';
 
   static RESOURCE_BOOK = '/book';
 }

@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {SharedCustomerService} from '../../shared/services/shared-customer.service';
 import {SharedBookService} from '../../shared/services/shared-book.service';
 
 @Component({

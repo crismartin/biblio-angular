@@ -1,5 +1,5 @@
 export interface BookSearchFilter {
   keyword?: string;
-  authorName?: string;
+  authorFullName?: string;
   authorReference?: string;
 }

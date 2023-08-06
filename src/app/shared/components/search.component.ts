@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {of} from 'rxjs';
+import {UtilsConstants} from '@shared/utils-constants';
 
 @Component({
   selector: 'app-search',
@@ -27,7 +28,11 @@ export class SearchComponent {
   }
 
   onClick(value): void {
-    this.selected.emit(value);
+    if (value === UtilsConstants.NO_RESULTS){
+      this.resetKey();
+    }else{
+      this.selected.emit(value);
+    }
   }
 
   public onChange(value: string): void {

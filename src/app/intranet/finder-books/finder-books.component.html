@@ -2,37 +2,42 @@
   <span>Intranet</span>
 </mat-toolbar>
 
-<div>
+<div class="filter-body">
   <mat-card>
-    <mat-card-title>Búsqueda de Libros</mat-card-title>
-    <br/>
-    <mat-card>
-      <mat-card-content>
+    <div>
+      <mat-card-title>Búsqueda de Libros</mat-card-title>
+      <br/>
+    </div>
+
+    <mat-card-content>
+      <div>
         <mat-label><strong>Filtros: </strong></mat-label>
-        <mat-form-field>
-          <mat-label>Palabra clave </mat-label>
-          <input [(ngModel)]="bookSearchFilter.keyword" matInput>
-        </mat-form-field>
-        <mat-form-field>
-          <!-- FIXME ESTO HAY QUE CAMBIAR POR SEARCHER QUE ME DEJE SELECCIONAR EL AUTOR QUE QUIERO-->
-          <mat-label>Autor </mat-label>
-          <input [(ngModel)]="bookSearchFilter.authorName" matInput>
-        </mat-form-field>
+        <br/><br/>
+      </div>
+
+      <mat-form-field>
+        <mat-label>Palabra clave </mat-label>
+        <input [(ngModel)]="bookSearchFilter.keyword" matInput>
+      </mat-form-field>
+
+      <app-search-by-author-fullname (add)="addAuthorFullName($event)"></app-search-by-author-fullname>
+
+      <div align="end">
         <button (click)="search()" mat-icon-button>
           <mat-icon>search</mat-icon>
         </button>
         <button (click)="resetSearch()" mat-icon-button>
           <mat-icon>close</mat-icon>
         </button>
-      </mat-card-content>
-    </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
     <br/>
     <div *ngIf="showBooksFound">
       <app-crud (read)="bookDetail($event)" [data]="books" [title]="titleTable"
-                createAction="false" deleteAction="false" updateAction="false"
-      ></app-crud>
+                createAction="false" deleteAction="false" updateAction="false">
+      </app-crud>
     </div>
-  </mat-card>
 </div>
 
 <router-outlet></router-outlet>

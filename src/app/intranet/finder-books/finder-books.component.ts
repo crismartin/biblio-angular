@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import {of} from 'rxjs';
 import {BookSearchFilter} from './book-search-filter';
 import {FinderBooksService} from './finder-books.service';
-import {SearchBook} from '../shared/models/search-book';
+import {BookItem} from '../shared/models/book-item';
 
 @Component({
   selector: 'app-finder-books',
-  templateUrl: './finder-books.component.html'
+  templateUrl: './finder-books.component.html',
+  styleUrls: ['./finder-books.component.css']
 })
 export class FinderBooksComponent {
 
@@ -33,8 +34,12 @@ export class FinderBooksComponent {
     this.bookSearchFilter = {};
   }
 
-  bookDetail(book: SearchBook): void {
+  bookDetail(book: BookItem): void {
 
+  }
+
+  addAuthorFullName(authorFullName: string): void {
+    this.bookSearchFilter.authorFullName = authorFullName;
   }
 }
 
