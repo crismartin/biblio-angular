@@ -3,6 +3,7 @@ import {of} from 'rxjs';
 import {BookSearchFilter} from './book-search-filter';
 import {FinderBooksService} from './finder-books.service';
 import {BookItem} from '../shared/models/book-item';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-finder-books',
@@ -16,7 +17,7 @@ export class FinderBooksComponent {
   showBooksFound = false;
   titleTable = 'Libros encontrados';
 
-  constructor(private finderBookService: FinderBooksService) {
+  constructor(private finderBookService: FinderBooksService, private router: Router) {
     this.resetSearch();
   }
 
@@ -35,7 +36,10 @@ export class FinderBooksComponent {
   }
 
   bookDetail(book: BookItem): void {
+    console.log('book a mostrar el detalle : ');
+    console.log(book);
 
+    this.router.navigate(['intranet', 'book', book.isbn]);
   }
 
   addAuthorFullName(authorFullName: string): void {

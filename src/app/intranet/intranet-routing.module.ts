@@ -5,6 +5,7 @@ import {IntranetComponent} from './intranet.component';
 import {LoanComponent} from './loan/loan.component';
 import {SuccessComponent} from './loan/success/success.component';
 import {FinderBooksComponent} from './finder-books/finder-books.component';
+import {BookComponent} from './book/book.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,9 @@ const routes: Routes = [
       },
       {
         path: 'finder-books', component: FinderBooksComponent
+      },
+      {
+        path: 'book/:isbn', component: BookComponent
       }
     ]
   }

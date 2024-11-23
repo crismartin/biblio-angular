@@ -13,6 +13,7 @@ import { SuccessComponent } from './loan/success/success.component';
 import {NgxBarcodeModule} from 'ngx-barcode';
 import { FinderBooksComponent } from './finder-books/finder-books.component';
 import { SearchByAuthorFullnameComponent } from './searchers/search-by-author-fullname/search-by-author-fullname.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchByAuthorFullnameComponent } from './searchers/search-by-author-fu
     BooksComponent,
     SuccessComponent,
     FinderBooksComponent,
-    SearchByAuthorFullnameComponent
+    SearchByAuthorFullnameComponent,
+    BookComponent
   ],
   entryComponents: [
   ],
