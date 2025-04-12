@@ -3,7 +3,8 @@ import {Observable} from 'rxjs';
 import {EndPoints} from '@shared/end-points';
 import {map} from 'rxjs/operators';
 import {HttpService} from '@core/http.service';
-import {UtilsConstants} from "@shared/utils-constants";
+import {UtilsConstants} from '@shared/utils-constants';
+import {Book} from '../models/book';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,11 @@ export class SharedBookService {
           }
         )
       );
+  }
+
+  getCopybookFromIsbn(bookIsbn: string): Observable<Book> {
+    const url = EndPoints.BOOKS + '/' + bookIsbn;
+    return this.httpService
+      .get(url);
   }
 }
