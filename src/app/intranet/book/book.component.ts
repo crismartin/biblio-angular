@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {BookDetail} from '../shared/models/book-detail';
-import {ActivatedRoute} from "@angular/router";
-import {SharedBookService} from "../shared/services/shared-book.service";
+import {ActivatedRoute} from '@angular/router';
+import {SharedBookService} from '../shared/services/shared-book.service';
+import {Book} from '../shared/models/book';
 
 @Component({
   selector: 'app-book',
@@ -10,15 +10,9 @@ import {SharedBookService} from "../shared/services/shared-book.service";
 })
 export class BookComponent implements OnInit {
 
-  bookDetail: BookDetail = {};
+  bookDetail: Book = {};
   constructor(private activatedRoute: ActivatedRoute, private sharedBookService: SharedBookService) {
     this.bookDetail = {
-      signature: 'ALGO',
-      available: true,
-      availabilityDate: '21/01/2025',
-      section: 'ALGO',
-      location: 'DEPOSITO',
-      book: {
         isbn: '9918181821ES',
         title: 'TITULO DE PRUEBA',
         releaseDate: new Date(),
@@ -28,7 +22,6 @@ export class BookComponent implements OnInit {
         numberOfCopies: 5,
         authors: [{fullName: 'AMADOR RIVAS INTTA HOUSE'}, {fullName: 'PEPE VIYUELA'}],
         categories: [{name: 'Drama'}, {name: 'Aventuras'}, {name: 'SCIFI'}]
-      }
     };
   }
 
@@ -42,13 +35,13 @@ export class BookComponent implements OnInit {
   }
 
   getAuthors(): string {
-    return this.bookDetail.book.authors
+    return this.bookDetail.authors
       .map(author => author.fullName)
       .join(', ');
   }
 
   getCategories(): string {
-    return this.bookDetail.book.categories
+    return this.bookDetail.categories
       .map(category => category.name)
       .join(', ');
   }

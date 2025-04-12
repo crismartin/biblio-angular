@@ -1,5 +1,5 @@
-import {Author} from "./author";
-import {Category} from "./category";
+import {Author} from './author';
+import {Category} from './category';
 
 export interface Book {
   isbn ?: string;
@@ -8,6 +8,7 @@ export interface Book {
   releaseDate ?: Date;
   summary ?: string;
   numberOfCopies ?: number;
+  nearAvailabilityDate ?: Date;
   authors ?: Array<Author>;
   categories ?: Array<Category>;
 }

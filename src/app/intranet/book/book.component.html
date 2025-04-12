@@ -11,31 +11,31 @@
     <mat-card-content>
       <div>
         <mat-grid-list cols="1" rowHeight="100px">
-          <mat-grid-tile><strong>{{bookDetail.book.title}}</strong></mat-grid-tile>
+          <mat-grid-tile><strong>{{bookDetail.title}}</strong></mat-grid-tile>
         </mat-grid-list>
         <mat-grid-list cols="1" rowHeight="100px">
           <mat-grid-tile><strong>de {{getAuthors()}}</strong></mat-grid-tile>
         </mat-grid-list>
         <mat-grid-list cols="1" rowHeight="100px">
           <mat-grid-tile><strong>Descripción:</strong></mat-grid-tile>
-          <mat-grid-tile><label>{{bookDetail.book.summary}}</label></mat-grid-tile>
+          <mat-grid-tile><label>{{bookDetail.summary}}</label></mat-grid-tile>
         </mat-grid-list>
         <br>
         <mat-grid-list cols="6" rowHeight="100px">
           <mat-grid-tile><strong>ISBN:</strong></mat-grid-tile>
-          <mat-grid-tile><label>{{bookDetail.book.isbn}}</label></mat-grid-tile>
+          <mat-grid-tile><label>{{bookDetail.isbn}}</label></mat-grid-tile>
           <mat-grid-tile> <strong>Año de publicación:</strong></mat-grid-tile>
-          <mat-grid-tile><label>{{bookDetail.book.releaseDate}}</label></mat-grid-tile>
+          <mat-grid-tile><label>{{bookDetail.releaseDate}}</label></mat-grid-tile>
         </mat-grid-list>
         <mat-grid-list cols="6" rowHeight="100px">
-          <mat-grid-tile><strong>Numero de copias:</strong></mat-grid-tile>
-          <mat-grid-tile><label>{{bookDetail.book.numberOfCopies}}</label></mat-grid-tile>
-          <div *ngIf="bookDetail.book.numberOfCopies == 0">
+          <mat-grid-tile><strong>Numero de copias disponibles:</strong></mat-grid-tile>
+          <mat-grid-tile><label>{{bookDetail.numberOfCopies}}</label></mat-grid-tile>
+          <div *ngIf="bookDetail.numberOfCopies == 0">
             <mat-grid-tile><strong>Disponible a partir de:</strong></mat-grid-tile>
-            <mat-grid-tile><label>{{bookDetail.availabilityDate}}</label></mat-grid-tile>
+            <mat-grid-tile><label>{{bookDetail.nearAvailabilityDate}}</label></mat-grid-tile>
           </div>
           <mat-grid-tile><strong>Ubicación:</strong></mat-grid-tile>
-          <mat-grid-tile><label>{{bookDetail.section}}-{{bookDetail.location}}</label></mat-grid-tile>
+          <mat-grid-tile><label>PENDIENTE DE DEFINIR</label></mat-grid-tile>
         </mat-grid-list>
         <mat-grid-list cols="6" rowHeight="100px">
           <mat-grid-tile><strong>Categorías:</strong></mat-grid-tile>
